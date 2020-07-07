@@ -2,6 +2,7 @@ import React from 'react';
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css';
 import './swiper.css';
+import bgCheck from '../../utils/background-check';
 
 import CHARLIE from '../../assets/charlie.jpg';
 import ARCHI from '../../assets/slide1-2.jpg';
@@ -14,7 +15,7 @@ import PBRNR2 from '../../assets/brnr2.jpg';
 import PJOKE from '../../assets/jok.jpg';
 
 
-const imges = [CHARLIE, ARCHI, BRNR, STAR];
+const imges = [BRNR, CHARLIE, ARCHI, STAR];
 const imges2 = [PAVER, PBABY, PBRNR2, PJOKE];
 
 export default () => {
@@ -28,16 +29,31 @@ export default () => {
     })
   }
 
+  const params = {
+    effect: 'cube',
+    grabCursor: true,
+    cubeEffect: {
+      shadow: false,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    }
+  }
+
   return (
     <>
+      <header className='header'>
+        <div className="brand">
+          <span>Charlie</span>
+        </div>
+      </header>
       <div className='main-page'>
-        <Swiper>
+        <Swiper {...params}>
           {renderSlides(imges)}
         </Swiper>
-        <img className='poster-s secondary1' src={PAVER} alt='avengers' />
-        <img className='poster-s secondary2' src={PBABY} alt='baby' />
-        <img className='poster-s secondary3' src={PBRNR2} alt='bladerunner' />
-        <img className='poster-s secondary4' src={PJOKE} alt='joker' />
       </div>
       <div className="content">
         <div className="slide-inner">
